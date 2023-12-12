@@ -35,7 +35,7 @@ $(function () {
 
     // 마우스에 좌표값 적용
     $cursor.css({
-      transform: `translate(${mx}, ${my})`,
+      transform: `translate(${mx}px, ${my}px)`,
     });
 
     // 부드럽게 반복
