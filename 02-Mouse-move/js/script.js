@@ -70,12 +70,8 @@ $(function () {
     console.log(scrollTop, targetPos);
 
     // 만약 스크롤값이 targetPos를 넘어가면
-    if (scrollTop >= targetPos) {
-      // 애니메이션을 멈추고
-      cancelAnimationFrame(movingObj);
-    } else {
-      // 그렇지 않으면 다시 애니메이션 실행
-      initMoving();
-    }
+    if (scrollTop >= targetPos) cancelAnimationFrame(movingObj);
+
+    if (scrollTop === 0) initMoving();
   });
 });
