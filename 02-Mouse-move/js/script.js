@@ -11,12 +11,16 @@ $(function () {
   // 보정되는 마우스 좌표값
   let mx = 0;
   let my = 0;
-  let speed = 0.8;
+  let speed = 0.08;
 
   // 마우스가 움직일 때 좌표값 받아오기
   $window.on('mousemove', function (e) {
-    x = e.pageX;
-    y = e.pageY;
+    // 마우스 좌표의 시작지점을 화면의 정중앙으로 이동
+    x = e.pageX - $window.outerWidth() / 2;
+    y = e.pageY - $window.outerHeight() / 2;
+    // x = 0일때,
+    // 0 = 0 - 960
+    // -960
   });
 
   moving();
