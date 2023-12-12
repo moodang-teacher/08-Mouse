@@ -52,3 +52,8 @@ body {
   height: 400px;
   background: green;
 }
+
+.scroll-area {
+  padding: 10%;
+  line-height: 2;
+}
