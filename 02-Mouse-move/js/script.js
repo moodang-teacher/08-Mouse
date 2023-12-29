@@ -24,8 +24,8 @@ $(function () {
   function getOffset() {
     $window.on('mousemove', function (e) {
       // 마우스 좌표의 시작지점을 화면의 정중앙으로 이동
-      x = e.pageX - $window.outerWidth() / 2;
-      y = e.pageY - $window.outerHeight() / 2;
+      x = Math.max(-100, Math.min(100, e.pageX - $window.outerWidth() / 2));
+      y = Math.max(-100, Math.min(100, e.pageY - $window.outerHeight() / 2));
     });
   }
 
@@ -37,17 +37,19 @@ $(function () {
 
     // 오브젝트에 좌표값 적용
     $obj1.css({
-      transform: `translate(${mx}px, ${my}px) rotate(${my}deg)`,
+      transform: `translate(${mx.toFixed(2)}px, ${my.toFixed(2)}px) rotate(${my.toFixed(2)}deg)`,
     });
     $obj2.css({
-      transform: `translate3d(${-mx}px, ${-my}px, ${mx}px)`,
+      transform: `translate3d(${-mx.toFixed(2)}px, ${-my.toFixed(2)}px, ${mx.toFixed(2)}px)`,
     });
     $obj3.css({
-      transform: `translate3d(${-mx * 0.5}px, ${my * 0.7}px, ${mx * 0.05}px) rotateY(${mx}deg)`,
+      transform: `translate3d(${-mx.toFixed(2) * 0.5}px, ${my.toFixed(2) * 0.7}px, ${
+        mx.toFixed(2) * 0.05
+      }px) rotateY(${mx.toFixed(2)}deg)`,
     });
     $obj4.css({
-      transform: `translate3d(${mx / 0.5}px, ${-my / 0.7}px, 0px)`,
-      filter: `blur(${-mx * 0.05}px)`,
+      transform: `translate3d(${mx.toFixed(2) / 0.5}px, ${-my.toFixed(2) / 0.7}px, 0px)`,
+      filter: `blur(${-mx.toFixed(2) * 0.05}px)`,
     });
 
     // 부드럽게 반복
